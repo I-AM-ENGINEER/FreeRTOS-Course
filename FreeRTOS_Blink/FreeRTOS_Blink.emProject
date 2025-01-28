@@ -1,0 +1,127 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="FreeRTOS_Blink" version="2" target="8">
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+  <configuration
+    LIBRARY_HEAP_TYPE="Minimal"
+    LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+    LIBRARY_LOCALES="Minimal"
+    Name="Release_MinSize"
+    arm_library_optimization="Small"
+    c_preprocessor_definitions="NDEBUG;__OPTIMIZATION_SMALL"
+    cpp_enable_exceptions="No"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 for size"
+    gcc_short_enum="Minimal Container Size"
+    libcxx="Yes (No Exceptions)"
+    link_dedupe_code="Yes"
+    link_dedupe_data="Yes"
+    link_merge_strings="Yes"
+    link_time_optimization="Yes"
+    linker_printf_fmt_level="int"
+    linker_printf_fp_enabled="No"
+    linker_printf_width_precision_supported="No" />
+  <project Name="FreeRTOS_Blink">
+    <configuration
+      LIBRARY_IO_TYPE="RTT"
+      Name="Common"
+      arm_architecture="v7EM"
+      arm_compiler_variant="gcc"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_heap_size="2048"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="GNU"
+      arm_target_device_name="STM32F303VC"
+      arm_target_interface_type="SWD"
+      debug_stack_pointer_start="__stack_end__"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_dedupe_code="Yes"
+      link_linker_script_file="Setup/SEGGER_Flash.icf"
+      linker_output_format="hex"
+      linker_section_placement_file="Setup/flash_placement.xml"
+      linker_section_placements_segments="FLASH1 RX 0x08000000 0x00040000;RAM1 RWX 0x20000000 0x00008000;"
+      project_directory=""
+      project_type="Executable" />
+    <configuration
+      Name="Debug"
+      arm_fp_abi="Hard"
+      arm_linker_search_path=""
+      c_additional_options=""
+      c_include_files=""
+      c_include_files_c_only=""
+      c_preprocessor_definitions="STM32F303xC"
+      c_user_include_directories="$(ProjectDir)/Include;$(ProjectDir)/CubeGenerated/Core/Inc;$(ProjectDir)/CubeGenerated/Drivers/CMSIS/Include;$(ProjectDir)/CubeGenerated/Drivers/STM32F3xx_HAL_Driver/Inc;$(ProjectDir)/CubeGenerated/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy;$(ProjectDir)/CubeGenerated/Drivers/CMSIS/Device/ST/STM32F3xx/Include;$(ProjectDir)/Middleware/FreeRTOS-Kernel/include;$(ProjectDir)/Middleware/FreeRTOS-Kernel/portable/GCC/ARM_CM4F"
+      gcc_c_language_standard="c11"
+      gcc_cplusplus_language_standard="c++11"
+      gcc_optimization_level="Debug"
+      is_cpp_project="Yes"
+      link_include_standard_libraries="Yes"
+      link_linker_script_file="$(ProjectDir)/System/STM32F303VCTx_FLASH.ld"
+      link_use_linker_script_file="No"
+      linker_additional_files="libc.a"
+      linker_additional_options="" />
+    <configuration
+      LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+      Name="Release_MinSize" />
+    <folder Name="CubeGenerated">
+      <folder Name="Source">
+        <file file_name="CubeGenerated/Core/Src/gpio.c" />
+        <file file_name="CubeGenerated/Core/Src/main.c">
+          <configuration Name="Debug" c_include_files="" />
+        </file>
+        <file file_name="CubeGenerated/Core/Src/stm32f3xx_hal_msp.c" />
+        <file file_name="CubeGenerated/Core/Src/stm32f3xx_hal_timebase_tim.c" />
+        <file file_name="CubeGenerated/Core/Src/stm32f3xx_it.c" />
+        <file file_name="CubeGenerated/Core/Src/system_stm32f3xx.c" />
+      </folder>
+    </folder>
+    <folder Name="Drivers">
+      <folder
+        Name="STM32F3xx_HAL"
+        exclude=""
+        filter=""
+        path="CubeGenerated/Drivers/STM32F3xx_HAL_Driver/Src"
+        recurse="No" />
+    </folder>
+    <folder Name="Middleware">
+      <folder Name="FreeRTOS">
+        <file file_name="Middleware/FreeRTOS-Kernel/list.c" />
+        <file file_name="Middleware/FreeRTOS-Kernel/portable/GCC/ARM_CM4F/port.c" />
+        <file file_name="Middleware/FreeRTOS-Kernel/queue.c" />
+        <file file_name="Middleware/FreeRTOS-Kernel/tasks.c" />
+      </folder>
+    </folder>
+    <folder Name="Setup">
+      <file file_name="Setup/flash_placement.xml" />
+    </folder>
+    <folder Name="Source">
+      <file file_name="Source/heap_3.c" />
+      <file file_name="Source/system.cpp" />
+    </folder>
+    <folder Name="System">
+      <configuration Name="Debug" c_include_files="" />
+      <file file_name="$(DeviceVectorsFile:)" />
+      <file file_name="System/Cortex_M_Startup.s">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+      <file file_name="System/thumb_crt0.s">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+    </folder>
+  </project>
+</solution>
