@@ -3,8 +3,6 @@
 #include "task.h"
 #include "main.h"
 
-TaskHandle_t xBlinkTaskHandler;
-
 void vBlinkLD3Task( void* arg ){
   while(1){
     vTaskDelay(pdMS_TO_TICKS(100));
@@ -20,7 +18,7 @@ void vBlinkLD4Task( void* arg ){
 }
 
 void SystemRun( void ){
-  xTaskCreate(vBlinkLD3Task, "BlinkLD3", configMINIMAL_STACK_SIZE, NULL, 0, &xBlinkTaskHandler);
-  xTaskCreate(vBlinkLD4Task, "BlinkLD4", configMINIMAL_STACK_SIZE, NULL, 0, &xBlinkTaskHandler);
+  xTaskCreate(vBlinkLD3Task, "BlinkLD3", configMINIMAL_STACK_SIZE, NULL, 0, NULL);
+  xTaskCreate(vBlinkLD4Task, "BlinkLD4", configMINIMAL_STACK_SIZE, NULL, 0, NULL);
   vTaskStartScheduler();
 }
