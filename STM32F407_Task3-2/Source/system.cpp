@@ -24,16 +24,21 @@ void printf_uart1(const char *format, ...) {
 void System::TasksFunctions::UART1_Printer1( void* arg ){
     while(1){
         printf_uart1("Task 1 - runing");
-        printf_uart1("Task 1 - lower prio");
-        vTaskPrioritySet(NULL, 1);
+        xTaskCreate(System::TasksFunctions::UART1_Printer2,
+                "UART1_Print2",
+                configMINIMAL_STACK_SIZE,
+                NULL,
+                2,
+                &System::TasksHandlers::UART1_Printer2
+        );
+        vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
 void System::TasksFunctions::UART1_Printer2( void* arg ){
-    while(1){
-        printf_uart1("Task 2 - runing");
-        vTaskPrioritySet(System::TasksHandlers::UART1_Printer1, 3);
-    }
+    printf_uart1("Task 2 - runing");
+    printf_uart1("Task 2 - deleting");
+    vTaskDelete(NULL);
 }
 
 /******************************** Init ************************************** */
@@ -45,13 +50,6 @@ void SystemRun( void ){
                 NULL,
                 1, 
                 &System::TasksHandlers::UART1_Printer1
-    );
-    xTaskCreate(System::TasksFunctions::UART1_Printer2,
-                "UART1_Print2",
-                configMINIMAL_STACK_SIZE,
-                NULL,
-                2,
-                &System::TasksHandlers::UART1_Printer2
     );
     vTaskStartScheduler();
 }
