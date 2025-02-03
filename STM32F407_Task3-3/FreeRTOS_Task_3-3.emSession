@@ -21,7 +21,6 @@
  <Project>
   <ProjectSessionItem path="FreeRTOS_Blink"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink"/>
-  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Setup"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Source"/>
  </Project>
  <Register1>
@@ -55,7 +54,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="22" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="18" useTextEdit="1" path="Include/system.h" left="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="54" y="2960" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/FreeRTOS.h" left="0" top="2943" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="15" y="2484" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/tasks.c" left="0" top="2467" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="106" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="0" top="89" codecName="UTF-8"/>
  </Files>
  <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/STM32F407_Task3-2/Source" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

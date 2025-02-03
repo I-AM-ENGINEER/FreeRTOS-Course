@@ -8,12 +8,12 @@
 
 namespace System{
     namespace TasksFunctions{
-        void UART1_Printer1( void* arg );
-        void UART1_Printer2( void* arg );
+        void LedBlinker( void* arg );
+        void ButtonChecker( void* arg );
     }
     namespace TasksHandlers{
-        TaskHandle_t UART1_Printer1;
-        TaskHandle_t UART1_Printer2;
+        TaskHandle_t LedBlinker;
+        TaskHandle_t ButtonChecker;
     }
 }
 
