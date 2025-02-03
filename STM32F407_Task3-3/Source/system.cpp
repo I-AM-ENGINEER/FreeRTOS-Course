@@ -30,8 +30,8 @@ bool IsButtonPressed( void ){
 
 void System::TasksFunctions::ButtonChecker( void* arg ){
     static bool old_btn_state = false;
-    eTaskState blink_task_state;
     while(1){
+        eTaskState blink_task_state;
         bool btn_state = IsButtonPressed();
         // If button pressed event
         if((old_btn_state == false) && (btn_state == true)){
@@ -39,23 +39,15 @@ void System::TasksFunctions::ButtonChecker( void* arg ){
             if(IsButtonPressed() == false){
                 goto no_action; // If button jitter no action
             }
-            blink_task_state = eTaskGetState(System::TasksHandlers::LedBlinker);
-            if(blink_task_state != eSuspended){
-                goto no_action; // If task isnt suspended for some reason no action
-            }
+        }
+
+        blink_task_state = eTaskGetState(System::TasksHandlers::LedBlinker);
+        if(blink_task_state == eSuspended){
             vTaskResume(System::TasksHandlers::LedBlinker);
-        }// If button unpressed event
-        else if((old_btn_state == true) && (btn_state == false)){
-            vTaskDelay(pdMS_TO_TICKS(BTN_JITTER_MS));
-            if(IsButtonPressed() == true){
-                goto no_action; // If button jitter no action
-            }
-            blink_task_state = eTaskGetState(System::TasksHandlers::LedBlinker);
-            if(blink_task_state != eRunning){
-                goto no_action; // If task isnt running for some reason no action
-            }
+        }else if(blink_task_state == eRunning){
             vTaskSuspend(System::TasksHandlers::LedBlinker);
         }
+
 no_action:
         old_btn_state = btn_state;
         vTaskDelay(pdMS_TO_TICKS(BTN_PULL_RATE_PERIOD_MS));
