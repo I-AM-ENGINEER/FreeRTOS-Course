@@ -23,7 +23,7 @@ void printf_uart1(const char *format, ...) {
 
 void System::TasksFunctions::UART1_Printer1( void* arg ){
     while(1){
-        printf_uart1("Task 1 - runing");
+        printf_uart1("Task 1 - runing\n");
         xTaskCreate(System::TasksFunctions::UART1_Printer2,
                 "UART1_Print2",
                 configMINIMAL_STACK_SIZE,
@@ -36,8 +36,8 @@ void System::TasksFunctions::UART1_Printer1( void* arg ){
 }
 
 void System::TasksFunctions::UART1_Printer2( void* arg ){
-    printf_uart1("Task 2 - runing");
-    printf_uart1("Task 2 - deleting");
+    printf_uart1("Task 2 - runing\n");
+    printf_uart1("Task 2 - deleting\n");
     vTaskDelete(NULL);
 }
 

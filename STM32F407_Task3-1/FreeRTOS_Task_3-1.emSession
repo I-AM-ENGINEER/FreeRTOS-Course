@@ -21,6 +21,8 @@
  <Project>
   <ProjectSessionItem path="FreeRTOS_Blink"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated;Source"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Source"/>
  </Project>
  <Register1>
@@ -54,9 +56,10 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="45" y="91" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="0" top="74" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="13" y="10" useTextEdit="1" path="Include/system.h" left="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="13" y="24" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="16" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="45" y="91" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="22" top="90" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="19" useTextEdit="1" path="Include/system.h" left="0" top="2" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="90" useTextEdit="1" path="CubeGenerated/Core/Src/main.c" left="0" top="60" codecName="UTF-8"/>
  </Files>
- <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/FreeRTOS_Blink/Source" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/FreeRTOS_Blink/Source" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
