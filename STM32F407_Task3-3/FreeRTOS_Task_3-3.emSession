@@ -21,7 +21,11 @@
  <Project>
   <ProjectSessionItem path="FreeRTOS_Blink"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated;Source"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Drivers"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Source"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;System"/>
  </Project>
  <Register1>
   <RegisterWindow invisibleNodes="" visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="FreeRTOS_Blink_Debug" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -42,7 +46,9 @@
   <Trace enabled="Yes"/>
  </TraceWindow>
  <Watch1>
-  <Watches active="1" update="Never"/>
+  <Watches active="1" update="Twice a Second">
+   <Watchpoint expression="old_btn_state" name="old_btn_state" radix="-1" linenumber="53" filename="Source/system.cpp"/>
+  </Watches>
  </Watch1>
  <Watch2>
   <Watches active="0" update="Never"/>
@@ -54,11 +60,12 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="0" useTextEdit="1" path="Source/system.cpp" left="0" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="24" useTextEdit="1" path="Include/system.h" left="0" selected="1" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="9" y="42" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="30" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="24" useTextEdit="1" path="Include/system.h" left="0" top="0" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="54" y="2960" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/FreeRTOS.h" left="0" top="2943" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="15" y="2484" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/tasks.c" left="0" top="2467" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="106" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="0" top="89" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="105" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="0" top="89" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="65" useTextEdit="1" path="CubeGenerated/Core/Src/main.c" left="0" top="67" codecName="UTF-8"/>
  </Files>
- <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/STM32F407_Task3-2/Source" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/STM32F407_Task3-2/Source" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

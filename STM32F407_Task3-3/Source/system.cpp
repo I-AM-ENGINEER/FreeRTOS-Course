@@ -34,17 +34,18 @@ void System::TasksFunctions::ButtonChecker( void* arg ){
         eTaskState blink_task_state;
         bool btn_state = IsButtonPressed();
         // If button pressed event
-        if((old_btn_state == false) && (btn_state == true)){
-            vTaskDelay(pdMS_TO_TICKS(BTN_JITTER_MS));
-            if(IsButtonPressed() == false){
-                goto no_action; // If button jitter no action
-            }
+        if((old_btn_state != false) || (btn_state != true)){
+            goto no_action; // If no press event
+        }
+        vTaskDelay(pdMS_TO_TICKS(BTN_JITTER_MS));
+        if(IsButtonPressed() == false){
+            goto no_action; // If button jitter no action
         }
 
         blink_task_state = eTaskGetState(System::TasksHandlers::LedBlinker);
         if(blink_task_state == eSuspended){
             vTaskResume(System::TasksHandlers::LedBlinker);
-        }else if(blink_task_state == eRunning){
+        }else{
             vTaskSuspend(System::TasksHandlers::LedBlinker);
         }
 

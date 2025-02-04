@@ -6,6 +6,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#ifdef __cplusplus
 namespace System{
     namespace TasksFunctions{
         void LedBlinker( void* arg );
@@ -17,7 +18,6 @@ namespace System{
     }
 }
 
-#ifdef __cplusplus
 extern "C" {
 #endif
 
