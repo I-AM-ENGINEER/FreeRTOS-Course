@@ -133,7 +133,7 @@
       <file file_name="../System/flash_placement.xml" />
     </folder>
     <folder Name="Source">
-      <file file_name="Source/heap_4.c" />
+      <file file_name="Source/heap_3.c" />
       <file file_name="Source/system.cpp" />
     </folder>
     <folder Name="System">
