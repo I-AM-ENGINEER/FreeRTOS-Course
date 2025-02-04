@@ -6,6 +6,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#ifdef __cplusplus
+
 namespace System{
     namespace TasksFunctions{
         void UART1_Printer1( void* arg );
@@ -17,7 +19,6 @@ namespace System{
     }
 }
 
-#ifdef __cplusplus
 extern "C" {
 #endif
 

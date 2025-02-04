@@ -55,7 +55,6 @@
  </Watch4>
  <Files>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="File1.txt" left="0" top="98" codecName=""/>
   <SessionOpenFile windowGroup="DockEditLeft" x="45" y="91" useTextEdit="1" path="Middleware/FreeRTOS-Kernel/include/task.h" left="0" top="74" codecName="UTF-8"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="13" y="10" useTextEdit="1" path="Include/system.h" left="0" top="0" codecName="UTF-8"/>
  </Files>

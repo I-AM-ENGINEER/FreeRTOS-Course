@@ -23,15 +23,15 @@ void printf_uart1(const char *format, ...) {
 
 void System::TasksFunctions::UART1_Printer1( void* arg ){
     while(1){
-        printf_uart1("Task 1 - runing");
-        printf_uart1("Task 1 - lower prio");
+        printf_uart1("Task 1 - runing\n");
+        printf_uart1("Task 1 - lower prio\n");
         vTaskPrioritySet(NULL, 1);
     }
 }
 
 void System::TasksFunctions::UART1_Printer2( void* arg ){
     while(1){
-        printf_uart1("Task 2 - runing");
+        printf_uart1("Task 2 - runing\n");
         vTaskPrioritySet(System::TasksHandlers::UART1_Printer1, 3);
     }
 }
