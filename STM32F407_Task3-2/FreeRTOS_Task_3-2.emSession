@@ -21,6 +21,8 @@
  <Project>
   <ProjectSessionItem path="FreeRTOS_Blink"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated"/>
+  <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;CubeGenerated;Source"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Setup"/>
   <ProjectSessionItem path="FreeRTOS_Blink;FreeRTOS_Blink;Source"/>
  </Project>
@@ -55,7 +57,8 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="42" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="22" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="39" y="25" useTextEdit="1" path="Source/system.cpp" left="0" selected="1" top="26" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="25" useTextEdit="1" path="CubeGenerated/Core/Src/main.c" left="0" top="165" codecName="UTF-8"/>
  </Files>
- <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/STM32F407_Task3-2/Source" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="FreeRTOS_Blink" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/noname/Documents/GitHub/FreeRTOS_course/STM32F407_Task3-2/Source" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
