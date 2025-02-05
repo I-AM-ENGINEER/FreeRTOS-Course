@@ -1,5 +1,6 @@
 #include "system.h"
 #include "main.h"
+#include "rng.h"
 #include <cstdlib>
 #include <cstring>
 #include <cstdio>
@@ -7,8 +8,8 @@
 /******************************** Config ************************************ */
 
 #define TASK1_PERIOD_MS       (1000)
-#define TASK2_PERIOD_MIN_MS   (100)
-#define TASK2_PERIOD_MAX_MS   (500)
+#define TASK2_PERIOD_MIN_MS   (1000)
+#define TASK2_PERIOD_MAX_MS   (3000)
 
 /******************************** Tasks **************************************/
 
@@ -36,6 +37,8 @@ void System::TasksFunctions::UART_Sender2( void* args ){
 /******************************** Init ***************************************/
 
 void SystemRun( void ){
+    MX_RNG_Init();
+    srand(HAL_RNG_GetRandomNumber(&hrng));
     xTaskCreate(System::TasksFunctions::UART_Sender1, 
                 "BTN checker",
                 configMINIMAL_STACK_SIZE,
@@ -51,6 +54,5 @@ void SystemRun( void ){
                 1,
                 &System::TasksHandlers::UART_Sender2
     );
-    srand(0);
     vTaskStartScheduler();
 }

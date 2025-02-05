@@ -19,6 +19,7 @@ public:
     }
 
     size_t Send( const uint8_t* buff, size_t size, uint32_t timeout ){
+        size_t cnt = 0;
         HAL_StatusTypeDef res;
         TickType_t timestamp1 = xTaskGetTickCount();
         xSemaphoreTake(_send_mutex, pdMS_TO_TICKS(timeout));
@@ -31,13 +32,13 @@ public:
         if(res != HAL_OK){
             goto timeout_event;
         }
+        cnt = size;
 timeout_event:
         xSemaphoreGive(_send_mutex);
-        return 0;
+        return cnt;
     }
 private:
     QueueHandle_t _send_mutex;
-    
     UART_HandleTypeDef* _huart;
 };
 
