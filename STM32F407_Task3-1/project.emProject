@@ -1,5 +1,5 @@
 <!DOCTYPE CrossStudio_Project_File>
-<solution Name="FreeRTOS_Blink" version="2" target="8">
+<solution Name="Task3-1" version="2" target="8">
   <configuration
     Name="Debug"
     c_preprocessor_definitions="DEBUG"
@@ -32,7 +32,7 @@
     linker_printf_fmt_level="int"
     linker_printf_fp_enabled="No"
     linker_printf_width_precision_supported="No" />
-  <project Name="FreeRTOS_Blink">
+  <project Name="Task3-1">
     <configuration
       LIBRARY_IO_TYPE="RTT"
       Name="Common"
@@ -133,7 +133,7 @@
       <file file_name="../System/flash_placement.xml" />
     </folder>
     <folder Name="Source">
-      <file file_name="Source/heap_4.c" />
+      <file file_name="Source/heap_3.c" />
       <file file_name="Source/system.cpp" />
     </folder>
     <folder Name="System">

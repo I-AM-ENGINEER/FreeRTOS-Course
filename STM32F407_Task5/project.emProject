@@ -1,5 +1,5 @@
 <!DOCTYPE CrossStudio_Project_File>
-<solution Name="FreeRTOS_Blink" version="2" target="8">
+<solution Name="Task5" version="2" target="8">
   <configuration
     Name="Debug"
     c_preprocessor_definitions="DEBUG"
@@ -32,7 +32,7 @@
     linker_printf_fmt_level="int"
     linker_printf_fp_enabled="No"
     linker_printf_width_precision_supported="No" />
-  <project Name="FreeRTOS_Blink">
+  <project Name="Task5">
     <configuration
       LIBRARY_IO_TYPE="RTT"
       Name="Common"
