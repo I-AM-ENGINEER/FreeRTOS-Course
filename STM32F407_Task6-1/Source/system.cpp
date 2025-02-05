@@ -37,9 +37,7 @@ void System::TasksFunctions::BTN_Checker( void* args ){
         
         
         HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-        xTimerStop(System::RTOS_Timers::LED_Off, 0);
         xTimerReset(System::RTOS_Timers::LED_Off, 0);
-        xTimerStart(System::RTOS_Timers::LED_Off, 0);
 no_action:
         old_btn_state = btn_state;
         vTaskDelay(pdMS_TO_TICKS(BTN_PULL_RATE_PERIOD_MS));
@@ -68,7 +66,6 @@ void SystemRun( void ){
                 0, 
                 System::RTOS_TimersCallbacks::LED_Off
     );
-    xTimerStop(System::RTOS_Timers::LED_Off, 0);
     HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
     vTaskStartScheduler();
 }
