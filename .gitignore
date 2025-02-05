@@ -32,3 +32,5 @@
 *.app
 .megaignore
 desktop.ini
+*.emSession
+*.jlink
