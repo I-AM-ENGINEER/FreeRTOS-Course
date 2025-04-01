@@ -13,8 +13,8 @@
 
 /******************************** Config ************************************ */
 
-#define GAME_MAX_LEVEL                    (3)
-#define GAME_DELAY_BETWEEN_FLASHES_MS     (500)    
+#define GAME_MAX_LEVEL                    (5)
+#define GAME_DELAY_BETWEEN_FLASHES_MS     (200)    
 #define GAME_LIGHT_TIME_DIFFICULTY1_MS    (1000)
 #define GAME_LIGHT_TIME_DIFFICULTY2_MS    (500)
 #define GAME_MAX_ENTER_TIME_MS            (3000)
@@ -30,6 +30,7 @@
 #define KEYBOARD_QUEUE_LENGTH             (16) 
 #define KEYBOARD_POOL_PERIOD_MS           (10)
 #define GAME_MENU_START_TEXT              ("Select dificulty (1 or 2):\r\n")
+#define GAME_MENU_PRERUN_TEXT             ("Game starting, check leds\r\n")
 #define GAME_GAMEOVER_INCORRECT_TEXT      ("Incorrect input, game over\r\n")
 #define GAME_GAMEOVER_TIMEOUT_TEXT        ("Input timeout, game over\r\n")
 #define GAME_WIN_TEXT                     ("Game won\r\n")

@@ -47,6 +47,7 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
 // Game main cycle
 void Game::MainTask( void* args ){
     while(1){
+        Device::HW::SetLeds(0x00);
         Device::uart1.Send((const uint8_t*)GAME_MENU_START_TEXT, strlen(GAME_MENU_START_TEXT), 1000);
         while (true) {
             char byte = 0;
@@ -60,6 +61,7 @@ void Game::MainTask( void* args ){
             }
             vTaskDelay(1);
         }
+        Device::uart1.Send((const uint8_t*)GAME_MENU_PRERUN_TEXT, strlen(GAME_MENU_PRERUN_TEXT), 1000);
         Game::Start();
     }
 }
@@ -72,9 +74,9 @@ void Game::SetDifficulty( uint8_t difficulty ){
 uint32_t Game::GetLightOnTimeMs( void ){
     uint32_t lighton;
     switch(_difficulty) {
-        case 0: lighton = GAME_LIGHT_TIME_DIFFICULTY1_MS;
-        case 1: lighton = GAME_LIGHT_TIME_DIFFICULTY2_MS;
-        default: lighton = 0;
+        case 0: lighton = GAME_LIGHT_TIME_DIFFICULTY1_MS; break;
+        case 1: lighton = GAME_LIGHT_TIME_DIFFICULTY2_MS; break;
+        default: lighton = 0; break;
     }
     return lighton;
 }
@@ -86,9 +88,11 @@ void Game::DisplayPatterns( uint16_t current_level ){
         Device::HW::SetLeds(1 << _patterns[i]);
         vTaskDelay(pdMS_TO_TICKS(GetLightOnTimeMs()));
     }
+    Device::HW::SetLeds(0x00);
 }
 
 bool Game::CheckInput( uint16_t current_level ){
+    xQueueReset(Device::keyboard_events); // Clear previous input
     for(uint16_t i = 0; i < current_level; i++){
         keyboard_message_t msg;
         // No one reason for use program timers for user input as described in 10 task condition
@@ -117,10 +121,10 @@ void Game::Start( void ){
         _patterns[i] = rand() % GAME_BUTTONS_COUNT;
     }
 
-    uint16_t current_level = 1;
     vTaskDelay(pdMS_TO_TICKS(GAME_PRELAUNCH_DELAY_MS));
     for(uint16_t i = 0; i < GAME_MAX_LEVEL; i++){
         vTaskDelay(pdMS_TO_TICKS(GAME_DELAY_BETWEEN_ROUNDS));
+        uint16_t current_level = i+1;
         DisplayPatterns(current_level);
         bool input_correct = CheckInput(current_level);
         if(!input_correct){
@@ -136,9 +140,9 @@ void Game::Start( void ){
 /******************************** Hardware class ***************************************/
 
 void Device::HW::SetLeds( uint8_t mask ){
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, mask & (1 << 0) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, mask & (1 << 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, mask & (1 << 2) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, mask & (1 << 0) ? GPIO_PIN_RESET : GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, mask & (1 << 1) ? GPIO_PIN_RESET : GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, mask & (1 << 2) ? GPIO_PIN_RESET : GPIO_PIN_SET);
 }
 
 uint8_t Device::HW::ReadButtons( void ){
@@ -173,6 +177,8 @@ static void keyboard_checker_timer_callback( TimerHandle_t xTimer ) {
 }
 
 void SystemRun( void ){
+    huart1.Init.BaudRate = 115200;
+    HAL_UART_Init(&huart1);
     HAL_UART_Receive_IT(&huart1, &Device::uart_rx_byte_buffer, 1);
     MX_RNG_Init();
     srand(HAL_RNG_GetRandomNumber(&hrng));
